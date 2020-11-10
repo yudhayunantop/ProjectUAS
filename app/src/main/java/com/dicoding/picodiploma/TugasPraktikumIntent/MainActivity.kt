@@ -15,7 +15,6 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        setActionBarTitle(title)
 
         rvFood = findViewById(R.id.rv_food   )
         rvFood.setHasFixedSize(true)
@@ -23,12 +22,6 @@ class MainActivity : AppCompatActivity() {
         list.addAll(FoodData.listData)
         showRecyclerList()
     }
-
-    private fun setActionBarTitle(title: String) {
-        supportActionBar?.title = title
-    }
-
-    private var title: String = "List food"
 
     private fun showSelectedFood(food: food) {
         Toast.makeText(this, "Kamu memilih " + food.name, Toast.LENGTH_SHORT).show()
@@ -48,10 +41,10 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun showSelected(food: food) {
-        val intent = Intent(this@MainActivity, DetailAdapter::class.java)
-        intent.putExtra(DetailAdapter.NAMA, food.name)
-        intent.putExtra(DetailAdapter.DETAIL, food.detail)
-        intent.putExtra(DetailAdapter.PHOTO, food.photo)
+        val intent = Intent(this@MainActivity, DetailActivity::class.java)
+        intent.putExtra(DetailActivity.NAMA, food.name)
+        intent.putExtra(DetailActivity.DETAIL, food.detail)
+        intent.putExtra(DetailActivity.PHOTO, food.photo)
         //startActivity(intent)
     }
 

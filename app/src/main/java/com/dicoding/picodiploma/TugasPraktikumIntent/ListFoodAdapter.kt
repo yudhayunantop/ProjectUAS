@@ -38,11 +38,11 @@ class ListFoodAdapter(val listFood: ArrayList<food>) : RecyclerView.Adapter<List
         holder.itemView.setOnClickListener(object: View.OnClickListener {
             override fun onClick(view: View) {
                 onItemClickCallback.onItemClicked(listFood[holder.adapterPosition])
-                val detailhalaman = Intent(view.context.applicationContext, DetailAdapter::class.java)
+                val detailhalaman = Intent(view.context.applicationContext, DetailActivity::class.java)
 
-                detailhalaman.putExtra(DetailAdapter.NAMA, food.name)
-                detailhalaman.putExtra(DetailAdapter.DETAIL, food.detail)
-                detailhalaman.putExtra(DetailAdapter.PHOTO, food.photo)
+                detailhalaman.putExtra(DetailActivity.NAMA, food.name)
+                detailhalaman.putExtra(DetailActivity.DETAIL, food.detail)
+                detailhalaman.putExtra(DetailActivity.PHOTO, food.photo)
                 view.context.startActivity(detailhalaman)
             }
         })
