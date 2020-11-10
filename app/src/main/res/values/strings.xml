@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">Android</string>
+    <string name="detail_name">Nama Android</string>
+    <string name="detail_android">Detail</string>
+    <string name="android_name" />
+    <string name="detail" />
+    <string name="activity_list">List Android</string>
+    <string name="activity_about">About</string>
+
+</resources>
