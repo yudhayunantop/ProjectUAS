@@ -23,7 +23,7 @@
         android:textStyle="bold"
         app:layout_constraintStart_toEndOf="@+id/img_item_photo"
         app:layout_constraintTop_toTopOf="parent"
-        tools:text="@string/android_name" />
+        tools:text="@string/food_name" />
 
     <TextView
         android:id="@+id/tv_item_detail"
