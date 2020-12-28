@@ -4,5 +4,8 @@
     <string name="detail_food">Detail</string>
     <string name="food_name">Nama Makanan</string>
     <string name="detail" />
+    <string name="pesanan">Pesanan</string>
+    <string name="about">About</string>
+    <string name="yudha_yunanto_putra">Yudha Yunanto Putra</string>
 
 </resources>

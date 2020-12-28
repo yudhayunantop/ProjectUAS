@@ -1,4 +1,4 @@
-package com.dicoding.picodiploma.TugasPraktikumIntent
+package com.dicoding.picodiploma.ProjectUAS
 
 import android.content.Intent
 import android.view.LayoutInflater

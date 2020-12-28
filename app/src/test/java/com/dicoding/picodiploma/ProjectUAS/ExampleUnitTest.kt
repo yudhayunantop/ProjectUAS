@@ -1,4 +1,4 @@
-package com.dicoding.picodiploma.TugasPraktikumIntent
+package com.dicoding.picodiploma.ProjectUAS
 
 import org.junit.Test
 
