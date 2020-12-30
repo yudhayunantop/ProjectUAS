@@ -30,6 +30,19 @@ object FoodData {
         "Spikoe Resep Kuno ini sudah terkenal sejak puluhan tahun. Khas dari Spikoe Resep Kuno ini adalah tekstur spikuknya sangat lembut dan tentu saja tentang rasanya yang sangat autentik. Spikoe Resep Kuno ini dapat ditemui di Jl. Rungkut Madya No.41 Surabaya. Untuk kisaran harga spiku ini dibanderol mulai harga Rp75.000,- per kotaknya hingga Rp200.000,-. Wah, bisa banget juga lho buat oleh-oleh pas pulang nanti!"
         )
 
+    private val foodPrice = intArrayOf(
+        1000,
+        2000,
+        3000,
+        4000,
+        5000,
+        6000,
+        7000,
+        8000,
+        9000,
+        10000
+    )
+
     private val foodImages = intArrayOf(
         R.drawable.bakso,
         R.drawable.bikang,
@@ -49,6 +62,7 @@ object FoodData {
                 val food = food()
                 food.name = foodNames[position]
                 food.detail = foodDetails[position]
+                food.price = foodPrice[position]
                 food.photo = foodImages[position]
                 list.add(food)
             }

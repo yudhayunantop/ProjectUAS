@@ -42,6 +42,7 @@ class ListFoodAdapter(val listFood: ArrayList<food>) : RecyclerView.Adapter<List
 
                 detailhalaman.putExtra(DetailActivity.NAMA, food.name)
                 detailhalaman.putExtra(DetailActivity.DETAIL, food.detail)
+                detailhalaman.putExtra(DetailActivity.PRICE, food.price)
                 detailhalaman.putExtra(DetailActivity.PHOTO, food.photo)
                 view.context.startActivity(detailhalaman)
             }
