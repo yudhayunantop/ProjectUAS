@@ -1,9 +1,11 @@
 package com.dicoding.picodiploma.ProjectUAS
 
+import android.content.Intent
 import android.os.Bundle
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
+import kotlinx.android.synthetic.main.activity_detail.*
 
 class DetailActivity : AppCompatActivity() {
     companion object{
@@ -24,7 +26,6 @@ class DetailActivity : AppCompatActivity() {
         val tvDataPrice: TextView = findViewById(R.id.tv_item_harga)
         val tvDataDetail: TextView = findViewById(R.id.tv_item_detail)
 
-
         val name = intent.getStringExtra(NAMA)
         val text1 = "$name"
         tvDataName.text = text1
@@ -39,5 +40,14 @@ class DetailActivity : AppCompatActivity() {
 
         val photo = intent.getIntExtra(PHOTO, 0)
         ivPhoto.setImageResource(photo)
+
+        buttonPesan.setOnClickListener {
+            val dataPesanan = Intent(baseContext, PesanActivity::class.java)
+
+            dataPesanan.putExtra(PesanActivity.NAMA, name)
+            dataPesanan.putExtra(PesanActivity.PRICE, price)
+
+            startActivity(dataPesanan)
+        }
     }
 }

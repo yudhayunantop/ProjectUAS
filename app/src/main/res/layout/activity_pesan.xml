@@ -9,31 +9,12 @@
         android:orientation="vertical"
         android:padding="30dp"
         tools:context=".PesanActivity">
-        <EditText
+        <TextView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:hint="Masukan nama anda ...."
-            android:id="@+id/edt_name"
-            android:inputType="text"/>
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Tambahkan Topping"
-            android:textSize="25dp"/>
-        <CheckBox
-            android:id="@+id/WhippedCream_checkbox"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Krim"
-            android:paddingLeft="16dp"
-            android:textSize="15sp"/>
-        <CheckBox
-            android:id="@+id/Chocolate_checkbox"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Coklat"
-            android:paddingLeft="16dp"
-            android:textSize="15sp"/>
+            android:id="@+id/nama_makanan"
+            android:textSize="25sp"
+            android:text="@string/nama_makanan"/>
 
         <View
             android:layout_marginTop="10dp"
@@ -101,9 +82,9 @@
             android:id="@+id/price_textview"
             android:textSize="25dp"/>
         <Button
+            android:id="@+id/submit_order"
             android:layout_width="wrap_content"
             android:layout_marginBottom="16dp"
-            android:onClick="submitorder"
             android:layout_height="wrap_content"
             android:text="Pesan Sekarang"/>
     </LinearLayout>

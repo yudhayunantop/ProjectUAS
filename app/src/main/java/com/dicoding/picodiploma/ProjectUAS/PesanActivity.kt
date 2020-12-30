@@ -2,20 +2,40 @@ package com.dicoding.picodiploma.ProjectUAS
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
 import android.view.View
-import android.widget.CheckBox
-import android.widget.EditText
 import android.widget.TextView
 import android.widget.Toast
+import kotlinx.android.synthetic.main.activity_pesan.*
 
 class PesanActivity : AppCompatActivity() {
 
+    companion object{
+        const val NAMA = "extra_name"
+        const val PRICE = "extra_price"
+    }
+
     private var quantity = 0
+    private var price = 0
+    private var name = ""
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_pesan)
+
+        //Deklarasi Variabel
+        val nameMakananText = findViewById<View>(R.id.nama_makanan) as TextView
+
+        //masukkan nama dan harga
+        name = intent.getStringExtra(DetailActivity.NAMA).toString()
+        nameMakananText.text=name
+
+        price = intent.getIntExtra(DetailActivity.PRICE, 0)
+
+        submit_order.setOnClickListener{
+            val bayar = calculateprice() //memanggil method jumlah harga
+            val pricemessage = createOrderSummary(bayar, name)
+            displayMessage(pricemessage)
+        }
     }
 
     fun increment() { //perintah tombol tambah
@@ -36,36 +56,13 @@ class PesanActivity : AppCompatActivity() {
         display(quantity)
     }
 
-    fun submitorder() {
-        val nameEditText = findViewById<View>(R.id.edt_name) as EditText
-        val name = nameEditText.text.toString()
-        Log.v("MainActivity", "Nama:$name")
-        val whippedcreamChekBox = findViewById<View>(R.id.WhippedCream_checkbox) as CheckBox
-        val haswhippedcream = whippedcreamChekBox.isChecked //mengidentifikasi check
-        Log.v("MainActivity", "has whippedcream:$haswhippedcream")
-        val chocolateChekBox = findViewById<View>(R.id.Chocolate_checkbox) as CheckBox
-        val haschocolate = chocolateChekBox.isChecked //mengidentifikasi check
-        Log.v("MainActivity", "has whippedcream:$haschocolate")
-        val price = calculateprice(haswhippedcream, haschocolate) //memanggil method jumlah harga
-        val pricemessage = createOrderSummary(price, name, haswhippedcream, haschocolate)
-        displayMessage(pricemessage)
+    private fun calculateprice(): Int { //jumlah pesanan * harga
+        var harga = price * quantity
+        return harga
     }
 
-    private fun calculateprice(addwhipedcream: Boolean, addchocolate: Boolean): Int { //jumlah pesanan * harga
-        var harga = 5000
-        if (addwhipedcream) {
-            harga = harga + 1000 //harga tambahan toping
-        }
-        if (addchocolate) {
-            harga = harga + 2000
-        }
-        return quantity * harga
-    }
-
-    private fun createOrderSummary(price: Int, name: String, addChocolate: Boolean, addWhippedCream: Boolean): String { //hasil pemesanan
+    private fun createOrderSummary(price: Int, name: String): String { //hasil pemesanan
         var pricemessage = " Nama = $name"
-        pricemessage += "\n Tambahkan Coklat =$addWhippedCream"
-        pricemessage += "\n Tambahkan Krim =$addChocolate"
         pricemessage += "\n Jumlah Pemesanan =$quantity"
         pricemessage += "\n Total = Rp $price"
         pricemessage += "\n Terimakasih"
