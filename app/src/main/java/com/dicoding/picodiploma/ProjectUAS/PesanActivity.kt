@@ -22,6 +22,9 @@ class PesanActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_pesan)
 
+        // set judul
+        supportActionBar?.title = "Pemesanan " + intent.getStringExtra(DetailActivity.NAMA)
+
         //masukkan nama dan harga
         val nameMakananText = findViewById<View>(R.id.nama_makanan) as TextView
         name = intent.getStringExtra(DetailActivity.NAMA).toString()
