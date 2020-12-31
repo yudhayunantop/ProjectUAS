@@ -22,10 +22,8 @@ class PesanActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_pesan)
 
-        //Deklarasi Variabel
-        val nameMakananText = findViewById<View>(R.id.nama_makanan) as TextView
-
         //masukkan nama dan harga
+        val nameMakananText = findViewById<View>(R.id.nama_makanan) as TextView
         name = intent.getStringExtra(DetailActivity.NAMA).toString()
         nameMakananText.text=name
 
@@ -35,6 +33,14 @@ class PesanActivity : AppCompatActivity() {
             val bayar = calculateprice() //memanggil method jumlah harga
             val pricemessage = createOrderSummary(bayar, name)
             displayMessage(pricemessage)
+        }
+
+        increment.setOnClickListener {
+            increment()
+        }
+
+        decrement.setOnClickListener {
+            decrement()
         }
     }
 
@@ -62,7 +68,12 @@ class PesanActivity : AppCompatActivity() {
     }
 
     private fun createOrderSummary(price: Int, name: String): String { //hasil pemesanan
-        var pricemessage = " Nama = $name"
+        val priceMakananText = findViewById<View>(R.id.price_textview) as TextView
+        priceMakananText.text = price.toString()
+
+        //NAMA, PRICE, QUANTITY berhasil ketangkep
+        var pricemessage = "\n PESANAN DITERIMA"
+        pricemessage += "\n Nama = $name"
         pricemessage += "\n Jumlah Pemesanan =$quantity"
         pricemessage += "\n Total = Rp $price"
         pricemessage += "\n Terimakasih"
