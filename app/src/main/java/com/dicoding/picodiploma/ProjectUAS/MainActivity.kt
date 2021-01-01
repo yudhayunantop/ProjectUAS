@@ -24,11 +24,6 @@ class MainActivity : AppCompatActivity() {
         list.addAll(FoodData.listData)
         showRecyclerList()
     }
-
-    private fun showSelectedFood(food: food) {
-        Toast.makeText(this, "Kamu memilih " + food.name, Toast.LENGTH_SHORT).show()
-    }
-
     private fun showRecyclerList() {
         rvFood.layoutManager = LinearLayoutManager(this)
         val listFoodAdapter = ListFoodAdapter(list)
@@ -36,7 +31,6 @@ class MainActivity : AppCompatActivity() {
 
         listFoodAdapter.setOnItemClickCallback(object : ListFoodAdapter.OnItemClickCallback {
             override fun onItemClicked(data: food) {
-                showSelectedFood(data)
                 showSelected(data)
             }
         })
