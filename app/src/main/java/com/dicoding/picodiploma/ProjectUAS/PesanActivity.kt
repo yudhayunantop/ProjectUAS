@@ -15,7 +15,6 @@ class PesanActivity : AppCompatActivity() {
         const val NAMA = "extra_name"
         const val PRICE = "extra_price"
         const val PHOTO = "extra_photo"
-        const val JUMLAH = "extra_jumlah"
     }
 
     private lateinit var FoodViewModel: foodViewModel
@@ -37,24 +36,30 @@ class PesanActivity : AppCompatActivity() {
 
         //menangkap data nama, harga, photo dari intent dan set ke textView
         val nameMakananText = findViewById<View>(R.id.nama_makanan) as TextView
-        name = intent.getStringExtra(DetailActivity.NAMA).toString()
+        name = intent.getStringExtra(NAMA).toString()
         nameMakananText.text=name
 
         val hargaSatuanText = findViewById<View>(R.id.harga_asli) as TextView
-        price = intent.getIntExtra(DetailActivity.PRICE, 0)
+        price = intent.getIntExtra(PRICE, 0)
         hargaSatuanText.text= price.toString()
 
-        photo = intent.getIntExtra(DetailActivity.PRICE, 0)
+        photo = intent.getIntExtra(PHOTO, 0)
 
+        // hitung harga
         hitung_order.setOnClickListener{
             bayar = calculateprice() //memanggil method jumlah harga
-            displayMessage(bayar)
+            val priceTextView = findViewById<View>(R.id.price_textview) as TextView
+            priceTextView.text = bayar.toString()
         }
 
         pesan_order.setOnClickListener {
             //Insert DB
             //memasukkan data ke objek
-            var food = food(name, price, quantity, photo)
+            var food = food(name, bayar, quantity, photo)
+            food.name = name
+            food.price = bayar
+            food.quantity = quantity
+            food.photo = photo
 
             //masukkan data ke db
             FoodViewModel.insert(food)
@@ -64,6 +69,7 @@ class PesanActivity : AppCompatActivity() {
 
             dataSummary.putExtra(SummaryPesanActivity.NAMA, name)
             dataSummary.putExtra(SummaryPesanActivity.PRICE, price)
+            dataSummary.putExtra(SummaryPesanActivity.TOTAL, bayar)
             dataSummary.putExtra(SummaryPesanActivity.JUMLAH, quantity)
 
             startActivity(dataSummary)
@@ -97,28 +103,10 @@ class PesanActivity : AppCompatActivity() {
         display(quantity)
     }
 
+    //method hitung harga
     private fun calculateprice(): Int { //jumlah pesanan * harga
         var harga = price * quantity
         return harga
-    }
-
-//    private fun submitOrderSummary(price: Int, name: String): String { //hasil pemesanan
-//        val priceMakananText = findViewById<View>(R.id.ringkasan) as TextView
-//        priceMakananText.text = price.toString()
-//
-////        //NAMA, PRICE, QUANTITY berhasil ketangkep
-//        var pricemessage = "\n PESANAN DITERIMA"
-//        pricemessage += "\n Nama = $name"
-//        pricemessage += "\n Jumlah Pemesanan =$quantity"
-//        pricemessage += "\n Total = Rp $price"
-//        pricemessage += "\n Terimakasih"
-//        return pricemessage
-//    }
-
-    //method ini untuk mencetak hasil perintah yang di tampilkan dengan inisial quantity_textview di textview 0
-    private fun displayMessage(message: Int) {
-        val priceTextView = findViewById<View>(R.id.price_textview) as TextView
-        priceTextView.text = message.toString()
     }
 
     private fun display(number: Int) {
