@@ -1,8 +1,18 @@
 package com.dicoding.picodiploma.ProjectUAS
 
+import androidx.annotation.NonNull
+import androidx.room.ColumnInfo
+import androidx.room.Entity
+import androidx.room.PrimaryKey
+
+//deklarasi objek dan dataBase yang memanfaatkan room
+@Entity(tableName = "order_table")
 data class food(
-    var name: String = "",
-    var detail: String = "",
-    var price: Int = 0,
-    var photo: Int = 0
+    @PrimaryKey
+    @NonNull
+    @ColumnInfo(name = "name") var name: String = "",
+    @ColumnInfo(name = "price") var price: Int = 0,
+    @ColumnInfo(name = "quantity") var quantity: Int = 0,
+    @ColumnInfo(name = "photo") var photo: Int = 0,
+    var detail: String = ""
 )

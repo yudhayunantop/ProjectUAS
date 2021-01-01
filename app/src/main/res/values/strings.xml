@@ -1,6 +1,5 @@
 <resources>
     <string name="app_name">Makanan Viral Surabaya</string>
-    <string name="detail_name"></string>
     <string name="detail_food">Detail</string>
     <string name="food_name">Nama Makanan</string>
     <string name="detail" />
@@ -16,5 +15,7 @@
     <string name="minus">-</string>
     <string name="plus">+</string>
     <string name="jumlah">jumlah</string>
+    <string name="hitung">Hitung</string>
+    <string name="terima_kasih">Terima Kasih</string>
 
 </resources>

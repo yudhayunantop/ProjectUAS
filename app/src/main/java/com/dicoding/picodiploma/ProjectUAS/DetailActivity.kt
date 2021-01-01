@@ -46,6 +46,7 @@ class DetailActivity : AppCompatActivity() {
 
             dataPesanan.putExtra(PesanActivity.NAMA, name)
             dataPesanan.putExtra(PesanActivity.PRICE, price)
+            dataPesanan.putExtra(PesanActivity.PHOTO, photo)
 
             startActivity(dataPesanan)
         }
