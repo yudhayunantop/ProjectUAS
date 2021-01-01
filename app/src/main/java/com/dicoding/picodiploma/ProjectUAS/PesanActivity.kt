@@ -53,6 +53,16 @@ class PesanActivity : AppCompatActivity() {
         }
 
         pesan_order.setOnClickListener {
+            //cek kuantitas
+            if (quantity == 0) {
+                Toast.makeText(this, "pesanan minimal 1", Toast.LENGTH_SHORT).show()
+                return@setOnClickListener
+            }
+            else if (quantity == 101) {
+                Toast.makeText(this, "pesanan maximal 100", Toast.LENGTH_SHORT).show()
+                return@setOnClickListener
+            }
+
             //Insert DB
             //memasukkan data ke objek
             var food = food(name, bayar, quantity, photo)
