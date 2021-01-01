@@ -30,7 +30,9 @@ class PesanActivity : AppCompatActivity() {
         name = intent.getStringExtra(DetailActivity.NAMA).toString()
         nameMakananText.text=name
 
+        val hargaSatuanText = findViewById<View>(R.id.harga_asli) as TextView
         price = intent.getIntExtra(DetailActivity.PRICE, 0)
+        hargaSatuanText.text= price.toString()
 
         submit_order.setOnClickListener{
             val bayar = calculateprice() //memanggil method jumlah harga

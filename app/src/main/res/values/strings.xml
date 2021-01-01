@@ -7,8 +7,14 @@
     <string name="pesanan">Pesanan</string>
     <string name="about">About</string>
     <string name="yudha_yunanto_putra">Yudha Yunanto Putra</string>
-    <string name="harga">Harga</string>
     <string name="rp">Rp.</string>
     <string name="nama_makanan">Nama Makanan</string>
+    <string name="harga">Harga</string>
+    <string name="total_harga">Total Harga</string>
+    <string name="pesan_sekarang">Pesan Sekarang</string>
+    <string name="_0">0</string>
+    <string name="minus">-</string>
+    <string name="plus">+</string>
+    <string name="jumlah">jumlah</string>
 
 </resources>
