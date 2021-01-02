@@ -19,6 +19,8 @@ class PesananActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_pesanan)
 
+        supportActionBar?.title = "Riwayat Pesanan"
+
         //deklarasi adapter dan recyclerView
         val recyclerView = findViewById<RecyclerView>(R.id.rv_pesanan)
         val adapter = ListPesananAdapter(this)

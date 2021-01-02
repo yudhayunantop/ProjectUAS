@@ -4,6 +4,7 @@ import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
@@ -19,7 +20,7 @@ class ListPesananAdapter internal constructor(context: Context) : RecyclerView.A
     var clickListener : OnClickListener? = null
 
     inner class FoodViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView){
-        //val foodPhoto: TextView = itemView.findViewById(R.id.img_item_photo)
+        val foodPhoto: ImageView = itemView.findViewById(R.id.img_item_photo)
         val foodName: TextView = itemView.findViewById(R.id.tv_item_name)
         val foodQuantity: TextView = itemView.findViewById(R.id.tv_quantity)
         val foodPrice: TextView = itemView.findViewById(R.id.tv_price)
@@ -36,10 +37,10 @@ class ListPesananAdapter internal constructor(context: Context) : RecyclerView.A
         val current = foods[position]
 
         //set foto
-//        Glide.with(holder.itemView.context)
-//            .load(current.photo)
-//            .apply(RequestOptions().override(55, 55))
-//            .into(holder.foodPhoto)
+        Glide.with(holder.itemView.context)
+            .load(current.photo)
+            .apply(RequestOptions().override(55, 55))
+            .into(holder.foodPhoto)
 
         holder.foodName.text = current.name
         holder.foodQuantity.text = current.quantity.toString()

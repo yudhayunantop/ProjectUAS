@@ -19,9 +19,9 @@
     <string name="terima_kasih">Terima Kasih</string>
     <string name="rangkuman_order">Rangkuman Order</string>
     <string name="Kembali">kembali</string>
-    <string name="hargalist">Harga = </string>
+    <string name="hargalist">Rp. </string>
     <string name="quantity">Quantity</string>
     <string name="price">Price</string>
-    <string name="jumlahlist">Jumlah = </string>
+    <string name="jumlahlist">pcs</string>
 
 </resources>
