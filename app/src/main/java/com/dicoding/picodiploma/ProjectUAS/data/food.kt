@@ -1,4 +1,4 @@
-package com.dicoding.picodiploma.ProjectUAS
+package com.dicoding.picodiploma.ProjectUAS.data
 
 import androidx.annotation.NonNull
 import androidx.room.ColumnInfo

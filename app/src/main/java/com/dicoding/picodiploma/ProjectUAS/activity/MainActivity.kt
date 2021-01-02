@@ -1,13 +1,16 @@
-package com.dicoding.picodiploma.ProjectUAS
+package com.dicoding.picodiploma.ProjectUAS.activity
 
 import android.content.Intent
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
-import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.dicoding.picodiploma.ProjectUAS.data.FoodData
+import com.dicoding.picodiploma.ProjectUAS.adapter.ListFoodAdapter
+import com.dicoding.picodiploma.ProjectUAS.R
+import com.dicoding.picodiploma.ProjectUAS.data.food
 
 
 class MainActivity : AppCompatActivity() {
@@ -18,12 +21,13 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        rvFood = findViewById(R.id.rv_food   )
+        rvFood = findViewById(R.id.rv_food)
         rvFood.setHasFixedSize(true)
 
         list.addAll(FoodData.listData)
         showRecyclerList()
     }
+
     private fun showRecyclerList() {
         rvFood.layoutManager = LinearLayoutManager(this)
         val listFoodAdapter = ListFoodAdapter(list)

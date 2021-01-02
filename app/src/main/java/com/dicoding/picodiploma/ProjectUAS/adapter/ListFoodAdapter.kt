@@ -1,4 +1,4 @@
-package com.dicoding.picodiploma.ProjectUAS
+package com.dicoding.picodiploma.ProjectUAS.adapter
 
 import android.content.Intent
 import android.view.LayoutInflater
@@ -9,6 +9,9 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions
+import com.dicoding.picodiploma.ProjectUAS.R
+import com.dicoding.picodiploma.ProjectUAS.activity.DetailActivity
+import com.dicoding.picodiploma.ProjectUAS.data.food
 
 class ListFoodAdapter(val listFood: ArrayList<food>) : RecyclerView.Adapter<ListFoodAdapter.ListViewHolder>() {
     private lateinit var onItemClickCallback: OnItemClickCallback
@@ -25,11 +28,13 @@ class ListFoodAdapter(val listFood: ArrayList<food>) : RecyclerView.Adapter<List
     override fun onBindViewHolder(holder: ListViewHolder, position: Int) {
         val food = listFood[position]
 
+        //set foto
         Glide.with(holder.itemView.context)
             .load(food.photo)
             .apply(RequestOptions().override(55, 55))
             .into(holder.imgPhoto)
 
+        //set nama dan detail
         holder.tvName.text = food.name
         holder.tvDetail.text = food.detail
 

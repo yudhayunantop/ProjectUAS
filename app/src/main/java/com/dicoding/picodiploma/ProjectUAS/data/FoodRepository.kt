@@ -1,4 +1,4 @@
-package com.dicoding.picodiploma.ProjectUAS
+package com.dicoding.picodiploma.ProjectUAS.data
 
 import android.os.AsyncTask
 import androidx.lifecycle.LiveData
@@ -6,7 +6,7 @@ import androidx.lifecycle.LiveData
 class FoodRepository(private val foodDao: FoodDao){
 
     //deklarasi LiveData pada repository
-    val allFood: LiveData<List<food>> = foodDao.getAlphabetizedWords()
+    val allFoods: LiveData<List<food>> = foodDao.getAlphabetizedWords()
 
     // menambahkan insert dari wordDao ke Repository
     fun insert(food: food){

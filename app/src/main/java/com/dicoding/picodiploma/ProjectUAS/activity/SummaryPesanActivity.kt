@@ -1,10 +1,11 @@
-package com.dicoding.picodiploma.ProjectUAS
+package com.dicoding.picodiploma.ProjectUAS.activity
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import android.widget.TextView
+import com.dicoding.picodiploma.ProjectUAS.R
 import kotlinx.android.synthetic.main.activity_summary_pesan.*
 
 class SummaryPesanActivity : AppCompatActivity() {

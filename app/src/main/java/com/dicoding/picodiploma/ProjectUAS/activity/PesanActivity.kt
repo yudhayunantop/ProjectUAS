@@ -1,4 +1,4 @@
-package com.dicoding.picodiploma.ProjectUAS
+package com.dicoding.picodiploma.ProjectUAS.activity
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
@@ -7,6 +7,9 @@ import android.view.View
 import android.widget.TextView
 import android.widget.Toast
 import androidx.lifecycle.ViewModelProvider
+import com.dicoding.picodiploma.ProjectUAS.R
+import com.dicoding.picodiploma.ProjectUAS.data.food
+import com.dicoding.picodiploma.ProjectUAS.foodViewModel
 import kotlinx.android.synthetic.main.activity_pesan.*
 
 class PesanActivity : AppCompatActivity() {

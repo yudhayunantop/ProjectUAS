@@ -1,7 +1,8 @@
-package com.dicoding.picodiploma.ProjectUAS
+package com.dicoding.picodiploma.ProjectUAS.activity
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import com.dicoding.picodiploma.ProjectUAS.R
 
 class aboutActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {

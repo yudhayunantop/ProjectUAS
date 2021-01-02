@@ -1,4 +1,4 @@
-package com.dicoding.picodiploma.ProjectUAS
+package com.dicoding.picodiploma.ProjectUAS.data
 
 import android.content.Context
 import androidx.room.Database
@@ -18,7 +18,7 @@ public abstract class FoodRoomDatabase : RoomDatabase() {
         @Volatile
         private var INSTANCE: FoodRoomDatabase? = null
 
-        fun getDatabase(context: Context, viewModelScope: CoroutineScope): FoodRoomDatabase{
+        fun getDatabase(context: Context, viewModelScope: CoroutineScope): FoodRoomDatabase {
             val tempInstance = INSTANCE
             if (tempInstance != null){
                 return tempInstance

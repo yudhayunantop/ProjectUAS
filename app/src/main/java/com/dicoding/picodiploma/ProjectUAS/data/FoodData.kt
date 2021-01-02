@@ -1,4 +1,6 @@
-package com.dicoding.picodiploma.ProjectUAS
+package com.dicoding.picodiploma.ProjectUAS.data
+
+import com.dicoding.picodiploma.ProjectUAS.R
 
 object FoodData {
     private val foodNames = arrayOf(
@@ -53,7 +55,8 @@ object FoodData {
         R.drawable.lumpur,
         R.drawable.pastel,
         R.drawable.spiku,
-        R.drawable.cincau)
+        R.drawable.cincau
+    )
 
     val listData: ArrayList<food>
         get() {

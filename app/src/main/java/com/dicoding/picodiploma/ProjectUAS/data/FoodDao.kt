@@ -1,4 +1,4 @@
-package com.dicoding.picodiploma.ProjectUAS
+package com.dicoding.picodiploma.ProjectUAS.data
 
 import androidx.lifecycle.LiveData
 import androidx.room.Dao

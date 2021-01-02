@@ -8,7 +8,7 @@
         android:layout_height="wrap_content"
         android:orientation="vertical"
         android:padding="30dp"
-        tools:context=".SummaryPesanActivity">
+        tools:context=".activity.SummaryPesanActivity">
 
         <TextView
             android:layout_width="wrap_content"
