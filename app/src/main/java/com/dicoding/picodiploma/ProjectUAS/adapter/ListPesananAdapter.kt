@@ -19,7 +19,7 @@ class ListPesananAdapter internal constructor(context: Context) : RecyclerView.A
     var clickListener : OnClickListener? = null
 
     inner class FoodViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView){
-        val foodPhoto: TextView = itemView.findViewById(R.id.img_item_photo)
+        //val foodPhoto: TextView = itemView.findViewById(R.id.img_item_photo)
         val foodName: TextView = itemView.findViewById(R.id.tv_item_name)
         val foodQuantity: TextView = itemView.findViewById(R.id.tv_quantity)
         val foodPrice: TextView = itemView.findViewById(R.id.tv_price)

@@ -32,10 +32,6 @@ class PesananActivity : AppCompatActivity() {
         FoodViewModel.allFood.observe(this, Observer { food ->
             food?.let {
                 adapter.setFoods(it)
-                adapter.setOnClickListener {
-                    val current = food[it]
-                    Toast.makeText(this, current.name , Toast.LENGTH_SHORT).show()
-                }
             }
         })
     }
