@@ -46,9 +46,11 @@ class SummaryPesanActivity : AppCompatActivity() {
         quantity = intent.getIntExtra(JUMLAH,0)
         quantityMakananText.text= quantity.toString()
 
+        //button intent ke halaman MainAcitivity
         kembali.setOnClickListener {
             val back = Intent(baseContext, MainActivity::class.java)
             startActivity(back)
+            finish()
         }
 
     }

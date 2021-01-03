@@ -18,6 +18,7 @@ class PesanActivity : AppCompatActivity() {
         const val NAMA = "extra_name"
         const val PRICE = "extra_price"
         const val PHOTO = "extra_photo"
+        const val USERNAME = "extra_username"
     }
 
     private lateinit var FoodViewModel: foodViewModel
@@ -36,6 +37,8 @@ class PesanActivity : AppCompatActivity() {
 
         // set judul
         supportActionBar?.title = "Pemesanan " + intent.getStringExtra(DetailActivity.NAMA)
+
+        val username = intent.getStringExtra(DetailActivity.USERNAME)
 
         //menangkap data nama, harga, photo dari intent dan set ke textView
         val nameMakananText = findViewById<View>(R.id.nama_makanan) as TextView
@@ -56,19 +59,23 @@ class PesanActivity : AppCompatActivity() {
         }
 
         pesan_order.setOnClickListener {
-            //cek kuantitas
+            //cek kuantitas dan bayar
             if (quantity == 0) {
                 Toast.makeText(this, "pesanan minimal 1", Toast.LENGTH_SHORT).show()
                 return@setOnClickListener
             }
-            else if (quantity == 101) {
+            if (quantity == 101) {
                 Toast.makeText(this, "pesanan maximal 100", Toast.LENGTH_SHORT).show()
+                return@setOnClickListener
+            }
+            if (bayar == 0){
+                Toast.makeText(this, "Hitung total terlebih dahulu!", Toast.LENGTH_SHORT).show()
                 return@setOnClickListener
             }
 
             //Insert DB
             //memasukkan data ke objek
-            var food = food(name, bayar, quantity, photo)
+            val food = food(name, bayar, quantity, photo)
             food.name = name
             food.price = bayar
             food.quantity = quantity
@@ -86,6 +93,7 @@ class PesanActivity : AppCompatActivity() {
             dataSummary.putExtra(SummaryPesanActivity.JUMLAH, quantity)
 
             startActivity(dataSummary)
+            finish()
 
         }
 
@@ -122,6 +130,7 @@ class PesanActivity : AppCompatActivity() {
         return harga
     }
 
+    //method tampil quantity
     private fun display(number: Int) {
         val quantityTextView = findViewById<View>(R.id.quantity_textview) as TextView
         quantityTextView.text = "" + number

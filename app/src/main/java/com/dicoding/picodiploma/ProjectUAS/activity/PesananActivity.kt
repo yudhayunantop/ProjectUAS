@@ -19,6 +19,7 @@ class PesananActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_pesanan)
 
+        //set judul
         supportActionBar?.title = "Riwayat Pesanan"
 
         //deklarasi adapter dan recyclerView

@@ -3,6 +3,7 @@ package com.dicoding.picodiploma.ProjectUAS.data
 import com.dicoding.picodiploma.ProjectUAS.R
 
 object FoodData {
+    //data nama
     private val foodNames = arrayOf(
         "Es Teler Tanjung Anom",
         "Bikang",
@@ -15,6 +16,7 @@ object FoodData {
         "Spikoe Resep Kuno",
         "Cincau Station")
 
+    //data detail
     private val foodDetails = arrayOf(
         "Es teler yang satu ini wajib kamu cobain apabila kamu berkunjung ke Surabaya. Terutama jika kamu mampir di Jl. Taman Apsari No. 7 Genteng. Isian yang lengkap mulai dari alpukat, kelapa, muda, potongan nangka hingga paduan es serutnya yang menambah kenikmatan di cuaca Surabaya yang terik. Wah jadi ngiler banget nih!",
         "Kue Bikang atau carabikang merupakan kue tradisional yang terbuat dari tepung beras dengan bentuk bunga yang merekah beraneka warna. Kue Bikang menjadi jajanan pasar khas Surabaya yang biasa disantap di pagi atau sore hari.",
@@ -28,6 +30,7 @@ object FoodData {
         "Spikoe Resep Kuno ini sudah terkenal sejak puluhan tahun. Khas dari Spikoe Resep Kuno ini adalah tekstur spikuknya sangat lembut dan tentu saja tentang rasanya yang sangat autentik!"
         )
 
+    //data harga
     private val foodPrice = intArrayOf(
         1000,
         2000,
@@ -41,6 +44,7 @@ object FoodData {
         10000
     )
 
+    //data gambar
     private val foodImages = intArrayOf(
         R.drawable.bakso,
         R.drawable.bikang,
@@ -54,6 +58,7 @@ object FoodData {
         R.drawable.cincau
     )
 
+    //add ke Array List
     val listData: ArrayList<food>
         get() {
             val list = arrayListOf<food>()
