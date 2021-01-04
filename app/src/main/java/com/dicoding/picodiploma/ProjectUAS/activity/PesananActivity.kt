@@ -2,13 +2,13 @@ package com.dicoding.picodiploma.ProjectUAS.activity
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.widget.Toast
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.dicoding.picodiploma.ProjectUAS.R
 import com.dicoding.picodiploma.ProjectUAS.adapter.ListPesananAdapter
+import com.dicoding.picodiploma.ProjectUAS.data.food
 import com.dicoding.picodiploma.ProjectUAS.foodViewModel
 
 class PesananActivity : AppCompatActivity() {
@@ -26,7 +26,7 @@ class PesananActivity : AppCompatActivity() {
         var username = intent.getStringExtra(MainActivity.USERNAME)
 
         //set judul
-        supportActionBar?.title = "Riwayat Pesanan"
+        supportActionBar?.title = "Riwayat Pesanan " + username
 
         //deklarasi adapter dan recyclerView
         val recyclerView = findViewById<RecyclerView>(R.id.rv_pesanan)

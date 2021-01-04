@@ -27,5 +27,6 @@
     <string name="username">Username</string>
     <string name="login">Login</string>
     <string name="jajanan_pasar_toko_abc">Jajanan Pasar Toko ABC</string>
+    <string name="id">id</string>
 
 </resources>

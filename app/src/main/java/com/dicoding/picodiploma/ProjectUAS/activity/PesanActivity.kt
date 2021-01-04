@@ -93,6 +93,7 @@ class PesanActivity : AppCompatActivity() {
             dataSummary.putExtra(SummaryPesanActivity.PRICE, price)
             dataSummary.putExtra(SummaryPesanActivity.TOTAL, bayar)
             dataSummary.putExtra(SummaryPesanActivity.JUMLAH, quantity)
+            dataSummary.putExtra(SummaryPesanActivity.USERNAME, username)
 
             startActivity(dataSummary)
             finish()

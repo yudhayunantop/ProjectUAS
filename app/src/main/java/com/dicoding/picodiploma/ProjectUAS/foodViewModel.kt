@@ -17,9 +17,7 @@ class foodViewModel (application: Application) : AndroidViewModel(application){
     init {
         val foodsDao = FoodRoomDatabase.getDatabase(application, viewModelScope).foodDao()
         repository = FoodRepository(foodsDao)
-        //allFood = repository.allFoods
-
-        allFood = repository.FoodId
+        allFood = repository.allFoods
     }
 
     //menambahkan insert pada viewModel
@@ -27,8 +25,4 @@ class foodViewModel (application: Application) : AndroidViewModel(application){
         repository.insert(food)
     }
 
-    //menambahkan delete pada viewModel
-    fun deleteAll() = viewModelScope.launch {
-        repository.deleteAll()
-    }
 }

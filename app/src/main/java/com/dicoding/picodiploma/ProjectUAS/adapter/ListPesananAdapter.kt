@@ -19,7 +19,10 @@ class ListPesananAdapter internal constructor(context: Context) : RecyclerView.A
     private var foods = emptyList<food>()
     var clickListener : OnClickListener? = null
 
+
+    // deklarasi id
     inner class FoodViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView){
+        val foodFoodID: TextView = itemView.findViewById(R.id.tv_foodID)
         val foodPhoto: ImageView = itemView.findViewById(R.id.img_item_photo)
         val foodName: TextView = itemView.findViewById(R.id.tv_item_name)
         val foodQuantity: TextView = itemView.findViewById(R.id.tv_quantity)
@@ -42,6 +45,8 @@ class ListPesananAdapter internal constructor(context: Context) : RecyclerView.A
             .apply(RequestOptions().override(55, 55))
             .into(holder.foodPhoto)
 
+        // set detail
+        holder.foodFoodID.text = current.foodId.toString()
         holder.foodName.text = current.name
         holder.foodQuantity.text = current.quantity.toString()
         holder.foodPrice.text = current.price.toString()
@@ -54,15 +59,6 @@ class ListPesananAdapter internal constructor(context: Context) : RecyclerView.A
         notifyDataSetChanged()
     }
     override fun getItemCount() = foods.size
-
-    // menambahkan setOnclickListener pada recyclerView
-    fun setOnClickListener(listener: (Int) -> Unit){
-        this.clickListener = object: OnClickListener {
-            override fun onClick(position: Int) {
-                listener(position)
-            }
-        }
-    }
 
     interface OnClickListener{
         fun onClick(position: Int)

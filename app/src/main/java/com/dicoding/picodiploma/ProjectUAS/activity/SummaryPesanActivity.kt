@@ -15,6 +15,7 @@ class SummaryPesanActivity : AppCompatActivity() {
         const val PRICE = "extra_price"
         const val JUMLAH = "extra_jumlah"
         const val TOTAL = "extra_total"
+        const val USERNAME = "extra_username"
     }
 
     private var quantity = 0
@@ -28,6 +29,8 @@ class SummaryPesanActivity : AppCompatActivity() {
 
         // set judul
         supportActionBar?.title = intent.getStringExtra(PesanActivity.NAMA)
+
+        var username = intent.getStringExtra(PesanActivity.USERNAME)
 
         //menangkap data nama, harga, jumlah dari intent dan set ke textView
         val nameMakananText = findViewById<View>(R.id.nama_makanan) as TextView
@@ -49,6 +52,7 @@ class SummaryPesanActivity : AppCompatActivity() {
         //button intent ke halaman MainAcitivity
         kembali.setOnClickListener {
             val back = Intent(baseContext, MainActivity::class.java)
+            back.putExtra(MainActivity.USERNAME, username)
             startActivity(back)
             finish()
         }
