@@ -38,7 +38,8 @@ class PesanActivity : AppCompatActivity() {
         // set judul
         supportActionBar?.title = "Pemesanan " + intent.getStringExtra(DetailActivity.NAMA)
 
-        val username = intent.getStringExtra(DetailActivity.USERNAME)
+        var username = intent.getStringExtra(DetailActivity.USERNAME)
+        var foodId = 0
 
         //menangkap data nama, harga, photo dari intent dan set ke textView
         val nameMakananText = findViewById<View>(R.id.nama_makanan) as TextView
@@ -75,7 +76,8 @@ class PesanActivity : AppCompatActivity() {
 
             //Insert DB
             //memasukkan data ke objek
-            val food = food(name, bayar, quantity, photo)
+            username = username.toString()
+            val food = food(foodId, username!!, name, bayar, quantity, photo)
             food.name = name
             food.price = bayar
             food.quantity = quantity

@@ -7,7 +7,7 @@ import androidx.room.RoomDatabase
 import kotlinx.coroutines.CoroutineScope
 
 // Annotates class to be a room database with a table (entity) of the Word class
-@Database(entities = arrayOf(food::class), version = 1, exportSchema = false)
+@Database(entities = arrayOf(food::class), version = 3, exportSchema = false)
 public abstract class FoodRoomDatabase : RoomDatabase() {
 
     abstract fun foodDao(): FoodDao
@@ -28,7 +28,9 @@ public abstract class FoodRoomDatabase : RoomDatabase() {
                     context.applicationContext,
                     FoodRoomDatabase::class.java,
                     "order_database"
-                ).build()
+                )
+                .addMigrations(MIGRATION_1_2, MIGRATION_2_3)
+                .build()
                 INSTANCE = instance
                 return instance
             }
