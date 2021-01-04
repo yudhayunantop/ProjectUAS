@@ -11,6 +11,9 @@ interface FoodDao {
     @Query("SELECT * FROM order_table ORDER BY name ASC")
     fun getAlphabetizedWords(): LiveData<List<food>>
 
+    @Query("SELECT * FROM order_table WHERE username=:username")
+    fun loadSingle(username: String): LiveData<List<food>>
+
     @Insert
     fun insert(food: food)
 

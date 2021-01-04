@@ -1,17 +1,14 @@
 package com.dicoding.picodiploma.ProjectUAS.activity
 
-import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
 import com.dicoding.picodiploma.ProjectUAS.data.FoodData
 import com.dicoding.picodiploma.ProjectUAS.adapter.ListFoodAdapter
 import com.dicoding.picodiploma.ProjectUAS.R
-import com.dicoding.picodiploma.ProjectUAS.activity.MainActivity.Companion.USERNAME
 import com.dicoding.picodiploma.ProjectUAS.data.food
 import kotlinx.android.synthetic.main.activity_main.*
 
@@ -23,7 +20,6 @@ class MainActivity : AppCompatActivity() {
     }
 
     private lateinit var adapter: ListFoodAdapter
-    private var list: ArrayList<food> = arrayListOf()
     private var username = ""
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -54,13 +50,6 @@ class MainActivity : AppCompatActivity() {
             }
         })
     }
-//
-//    //method show RecyclerList
-//    private fun showRecyclerList() {
-//        rvFood.layoutManager = LinearLayoutManager(this)
-//        val listFoodAdapter = ListFoodAdapter(list)
-//        rvFood.adapter = listFoodAdapter
-//    }
 
     //add menu
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
@@ -74,6 +63,7 @@ class MainActivity : AppCompatActivity() {
         when (item.itemId) {
             R.id.pesanan -> {
                 val i = Intent(this, PesananActivity::class.java)
+                i.putExtra(PesananActivity.USERNAME, username)
                 startActivity(i)
                 finish()
                 return true

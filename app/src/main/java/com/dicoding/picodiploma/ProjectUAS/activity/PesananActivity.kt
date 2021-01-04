@@ -15,9 +15,15 @@ class PesananActivity : AppCompatActivity() {
 
     private lateinit var FoodViewModel: foodViewModel
 
+    companion object{
+        const val USERNAME = "extra_username"
+    }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_pesanan)
+
+        var username = intent.getStringExtra(MainActivity.USERNAME)
 
         //set judul
         supportActionBar?.title = "Riwayat Pesanan"
